@@ -161,6 +161,7 @@ body {
 .client-section div{
     text-align: center;
 }
+
 .client-logo-container{
     justify-content: space-between;
   display: flex;
@@ -350,3 +351,28 @@ body {
   filter: invert(100%);
 }
 
+
+.community-section{
+  @extend .client-section;
+}
+.community-section-container{
+  @extend .client-logo-container;
+  justify-content: space-between;
+}
+.community-section div div:first-child{
+  // width: 50%;
+  // margin: 0 auto;
+}
+
+.card{
+  width: 302px;
+  padding: 16px 22px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  box-shadow: 2px 10px 8px #d7d7d7;
+}
+.community-heading{
+  @extend .feature-heading;
+  padding-top: 16px;
+  font-size: 28px;
+}

@@ -71,7 +71,7 @@ body {
 }
 
 .content-section {
-  margin-top: 70px;
+  margin-top: 74px;
 }
 
 .care-desc {
@@ -117,7 +117,7 @@ body {
 }
 
 .feature-section {
-  margin-top: 70px;
+  margin-top: 74px;
 }
 
 .feature-flex-center, .data-section-center {
@@ -147,7 +147,7 @@ body {
   padding-right: 10%;
 }
 
-.feature-heading {
+.feature-heading, .community-heading {
   font-size: 36px;
   font-weight: 600;
   color: #4D4D4D;
@@ -164,22 +164,22 @@ body {
   width: 80%;
 }
 
-.client-section div {
+.client-section div, .community-section div {
   text-align: center;
 }
 
-.client-logo-container {
+.client-logo-container, .community-section-container {
   justify-content: space-between;
   display: flex;
   padding: 25px 0;
 }
 
-.client-section {
-  margin-top: 70px;
+.client-section, .community-section {
+  margin-top: 74px;
 }
 
 .data-section {
-  margin-top: 70px;
+  margin-top: 74px;
   background-color: #f7f8fa;
 }
 
@@ -224,7 +224,7 @@ body {
 }
 
 .footer-section {
-  margin-top: 70px;
+  margin-top: 74px;
   background-color: #263238;
   color: #ffffff;
   padding: 60px 100px;
@@ -355,6 +355,23 @@ body {
   width: 18px;
   height: 18px;
   filter: invert(100%);
+}
+
+.community-section-container {
+  justify-content: space-between;
+}
+
+.card {
+  width: 302px;
+  padding: 16px 22px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  box-shadow: 2px 10px 8px #d7d7d7;
+}
+
+.community-heading {
+  padding-top: 16px;
+  font-size: 28px;
 }
 
 /*# sourceMappingURL=style.css.map */
