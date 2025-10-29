@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assignment - Day 2</title>
+</head>
+<body>
+    <h1>Day 2</h1>
+    <h3>Q1 - Allow submission of form only if the user has entered his name(not empty) and age is greater than or equals to 18</h3>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <br/>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" />
+        <br/>
+        <input type="submit" value="Submit" />
+    </form>
+
+
+
+    <h3>Q2 - Change color of the div when mouse is moved over it and restore the color when mouse moves out of it using js</h3>
+    
+    <div id="colorchange" style="width: 400px; height: 200px; background-color: aqua;"></div>
+
+
+    <div style="display: flex; align-items: center; ">
+        <div style="width: 60%; margin-bottom: 30px;">
+
+            <h3>Q3 - Add a number to the end of the array.</h3>
+            <label for="number">Enter a number to add at the end of the array:</label>
+            <input type="number" id="number" name="number" />
+            <button id="addNumber">Add Number</button>
+
+            <h3>Q4 - Remove the first number from the array.</h3>
+            <button id="removeNumber">Remove First Number</button>
+
+            <h3>Q5 - Insert a number at a specific index.</h3>
+            <label for="number1">Enter a number</label>
+            <input type="number1" id="number1" name="number" />
+            <label for="index">Enter index</label>
+            <input type="number" id="index" name="index" />
+            <button id="addNumberatindex">Add Number at index</button>
+
+            <h3>Q6 - Replace all occurrences of a number with another number.</h3>
+            <label for="number2">Enter number to be replaced</label>
+            <input type="number2" id="number2" name="number" />
+            <label for="newnumber">Enter new number</label>
+            <input type="newnumber" id="newnumber" name="index" />
+            <button id="replacenumber">Replace all</button>
+            
+            
+            <h3>Q7 - Sort the array in ascending order(without using sort())</h3>
+            <button id="sortArray">Sort Array</button>
+
+
+            <h3>Q8 - Reverse the array.(without using reverse())</h3>
+            <button id="reverseArray">Reverse Array</button>
+
+
+            <h3>Q9 - Find the index of a specific number.</h3>
+            <label for="num"></label>
+            <input type="number" id="num" name="num" />
+            <button id="findIndex">Find Index</button>
+        </div>
+        <div>
+            <p><strong>Initial Array: </strong>[1,2,3,4,5]</p>
+            <p><strong>Modified Array: </strong><span id="arrayDisplay"></span></p>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelector('form').addEventListener('submit', submit);
+
+        //Q1 logic to validate form
+        function submit(e){
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const age = parseInt(document.getElementById('age').value,10);
+            if(!name) {alert("Name cannot be empty"); return false;}
+            else if(!age || age<18) {alert("Age must be at least 18");  return false;}
+            alert("Form submitted successfully");
+            console.log({name, age}); 
+        }
+
+        //Q2 logic to change color on hover
+        document.getElementById('colorchange').addEventListener('mouseover', changeColor);
+        function changeColor(){
+            document.getElementById('colorchange').style.backgroundColor = 'lightgoldenrodyellow';
+        }
+        document.getElementById('colorchange').addEventListener('mouseout', resetColor);
+        function resetColor(){
+            document.getElementById('colorchange').style.backgroundColor = 'aqua';
+        }
+
+        //Q3 logic to add number to array
+        let arr = [1, 2, 3, 4, 5];
+        document.getElementById('addNumber').addEventListener('click',addNumber);
+        function addNumber(){
+            const number= parseInt(document.getElementById('number').value);
+            if(!isNaN(number)){
+                arr.push(number);
+                document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+            }
+        }
+
+        //Q4 logic to remove first number from array
+        document.getElementById('removeNumber').addEventListener('click',removeNumber);
+        function removeNumber(){
+            arr.shift();
+            document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+        }
+
+        //Q5 logic to add number at specific index
+        document.getElementById('addNumberatindex').addEventListener('click',addNumberatindex);
+        function addNumberatindex(){
+            const number= parseInt(document.getElementById('number1').value);
+            const index= parseInt(document.getElementById('index').value);
+            if(!isNaN(index) && !isNaN(number) && index>=0 && index<=arr.length){
+                arr.splice(index, 0, number);
+                document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+            }
+        }
+
+        //Q6 logic to replace all occurrences of a number
+        document.getElementById('replacenumber').addEventListener('click',replacenumber);
+        function replacenumber(){
+            const number=parseInt(document.getElementById('number2').value);
+            const newnumber=parseInt(document.getElementById('newnumber').value);
+            if(!isNaN(number) && !isNaN(newnumber)){
+                arr= arr.map(item=>item===number ? newnumber : item);
+                document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+            }
+        }
+
+        //Q7 logic to sort array in ascending order without using sort()
+        document.getElementById('sortArray').addEventListener('click',sortArray);
+        function sortArray(){
+            for(let i=0; i<arr.length-1; i++){
+                for(let j=0; j<arr.length-i-1; j++){
+                    if(arr[j]>arr[j+1]){
+                        let temp= arr[j];
+                        arr[j]= arr[j+1];
+                        arr[j+1]= temp;
+                    }
+                }
+            }
+            document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+        }
+
+        //Q8 logic to reverse array without using reverse()
+        document.getElementById('reverseArray').addEventListener('click',reversearr);
+        function reversearr(){
+            let len=arr.length-1;
+            for(let i=0;i<arr.length/2;i++){
+                let a=arr[i];
+                arr[i]=arr[len-i];
+                arr[len-i]=a;
+            }
+            document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
+        }
+
+        //Q9 logic to find index of specific number
+        document.getElementById('findIndex').addEventListener('click',findIndex);
+        function findIndex(){
+            const num=parseInt(document.getElementById('num').value);
+            if(!isNaN(num)){
+                const index= arr.indexOf(num);
+                if(index!==-1){
+                    alert(`Index of ${num} is ${index}`);
+                } else {
+                    alert(`${num} not found in array`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assignment </title>
+    <style>
+        
+        :root{
+            --border:#d0d7de;
+            --accent:#0b5fff;
+            --muted:#6b7280;
+            --row-height:48px;
+        }
+        body{
+            font-family: Inter, Roboto, Arial, sans-serif;
+            color:#222;
+            margin:24px;
+            background:#fff;
+        }
+
+        h1{ margin:0 0 12px 0; font-size:1.4rem; }
+
+        /* Button */
+        #addstudent{
+            padding:8px 12px;
+            background:var(--accent);
+            color:#fff;
+            border:1px solid rgba(11,95,255,0.9);
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:600;
+        }
+        #addstudent:hover{ filter:brightness(.95); }
+
+       
+        table{
+            width:100%;
+            border-collapse:collapse;
+            table-layout:fixed; 
+            margin-top:16px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+            background:#fff;
+        }
+
+        thead th{
+            background:#f7fafc;
+            border:1px solid var(--border);
+            padding:10px 8px;
+            font-size:0.95rem;
+            color:#111827;
+            text-align:center;
+        }
+
+        tbody td{
+            border:1px solid var(--border);
+            padding:8px;
+            text-align:center;
+            height:var(--row-height);
+            box-sizing:border-box;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            font-size:0.95rem;
+            color:#111827;
+        }
+
+        
+        thead th, tbody td { width: calc(100% / 8); }
+
+        tbody tr:nth-child(even){ background:#fbfdff; }
+        tbody tr:hover{ background:#f1f5ff; }
+
+        
+        @media (max-width:600px){
+            thead th, tbody td { white-space:normal; font-size:0.9rem; }
+            tbody td{ height:auto; }
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <h1>Student Page</h1>
+    <button id="addstudent">Add student</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Math</th>
+                <th>Physics</th>
+                <th>Chemistry</th>
+                <th>Hindi</th>
+                <th>English</th>
+                <th>Total</th>
+                <th>Average</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            
+        </tbody>
+    </table>
+    <script>
+        document.getElementById('addstudent').addEventListener('click', function() {
+            const name = prompt("Enter student's name:");
+            const math = parseFloat(prompt("Enter marks in Math: (out of 30)"));
+            const physics = parseFloat(prompt("Enter marks in Physics: (out of 30)"));
+            const chemistry = parseFloat(prompt("Enter marks in Chemistry: (out of 30)"));
+            const hindi = parseFloat(prompt("Enter marks in Hindi: (out of 30)"));
+            const english = parseFloat(prompt("Enter marks in English: (out of 30)"));
+
+            const total = math + physics + chemistry + hindi + english;
+            const average = total / 5;
+
+            const tableBody = document.getElementById('studentTableBody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${math}</td>
+                <td>${physics}</td>
+                <td>${chemistry}</td>
+                <td>${hindi}</td>
+                <td>${english}</td>
+                <td>${total}</td>
+                <td>${average.toFixed(2)}</td>
+            `;
+
+            tableBody.appendChild(newRow);
+        });
+    </script>
+</body>
+</html>
