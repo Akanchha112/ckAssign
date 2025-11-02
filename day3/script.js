@@ -15,7 +15,6 @@ function createCard(element){
     const category=document.createElement('p');
     category.innerHTML=`<strong>Category:</strong> ${element.category}`;
     const discount=document.createElement('p');
-    // discount.setAttribute('id', 'discountPrice');
     discount.innerHTML=`<strong>Discount:</strong> ${element.discountedprice}`;
 
     a.append(heading);
