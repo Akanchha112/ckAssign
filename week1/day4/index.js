@@ -2,6 +2,7 @@
 const add=(a,b)=>{
     return a+b;
 }
+
 console.log("1. Arrow funciton : ", add(2,9));
 
 
@@ -134,7 +135,7 @@ fun("");
 
 // 12. Deep Clone Objects
 const iterateKeys = (obj) => {
-    let newobj={};
+  let newobj={};
   for (const key in obj) {
     if (typeof obj[key] === "object" && obj[key] !== null) {
       
@@ -150,7 +151,7 @@ const deepClone = (obj) => {
   return iterateKeys(obj);
 };
 
-const obj = { a: 1, b: { c: 2 } };
+const obj = { a: 1, b: { c: 2 }, d: null };
 
 const cloned = deepClone(obj);
 console.log("Original:", obj);

@@ -1,0 +1,109 @@
+Linux Assignment
+
+Q1- Find and terminate the top memory-consuming process on your system.
+akanchha-singh@TTNPL-akanchhasingh:~$ top - The top command displays a dynamic, real-time view of: CPU usage, Memory usage, Running processes, System load. It is similar to Task Manager in Windows.
+press shift+M to short by memory usage and shift + p to short by cpu usage again
+akanchha-singh@TTNPL-akanchhasingh:~$ kill 4675 - kill <PID>: Sends the default SIGTERM signal (signal 15), which requests the process to terminate gracefully.
+
+
+Q2. Create a user named devops and grant them sudo privileges.
+akanchha-singh@TTNPL-akanchhasingh:~$ sudo adduser test - sudo in Linux is a command-line utility that allows authorized users to execute commands with the security privileges of another user, most commonly the superuser (root). The name "sudo" is a contraction of "superuser do."
+akanchha-singh@TTNPL-akanchhasingh:~$ groups test - check what privilages test user already has
+akanchha-singh@TTNPL-akanchhasingh:~$ sudo usermod -aG sudo test - Run usermod as superuser, appending (-a) the user test to the group sudo (-G sudo).
+
+user is ->
+    username- test 
+    pass - test123
+
+
+Q3. Connect to a remote server, create a directory, and copy files into it using SCP.
+akanchha-singh@TTNPL-akanchhasingh:~$ ssh aditi-bhadoria@10.1.210.150
+aditi-bhadoria@CK-aditibhadoria:~$ mkdir ~/linux_practical
+aditi-bhadoria@CK-aditibhadoria:~$ ls
+aditi-bhadoria@CK-aditibhadoria:~$ exit
+akanchha-singh@TTNPL-akanchhasingh:~$ scp /home/akanchha-singh/Documents/practice/a1.txt aditi-bhadoria@10.1.210.150:/home/aditi-bhadoria/linux_practical/
+
+
+Q4. List all active processes and save only those containing the word java into a file.
+akanchha-singh@TTNPL-akanchhasingh:~$ ps aux | grep 'java'  
+
+ps – shows current running processes.
+a – includes processes of all users.
+u – displays detailed information (user, CPU, memory, etc.).
+x – shows background processes without a terminal.
+| – pipes output from one command to another.
+grep 'java' – filters and shows only lines containing “java.
+
+
+Q5. Generate an SSH key pair and configure it for two different remote servers.
+
+Q6. Find all lines containing “error” in /var/log/syslog and redirect them to errors_found.txt
+akanchha-singh@TTNPL-akanchhasingh:~$ grep -i "error" /var/log/syslog > errors_found.txt
+
+grep "error" → searches for the word error in the file.
+/var/log/syslog → this is the file where your system keeps logs.
+> → means “save the output into a file.”
+errors_found.txt → the new file that will store the results.
+-i -> ignore case when searching — treat ERROR, Error, and error as the same.
+
+Q7. Find all .conf files in /etc, sort them alphabetically, and save to conf_list.txt.
+akanchha-singh@TTNPL-akanchhasingh:~$ ls /etc | grep "*.conf"
+akanchha-singh@TTNPL-akanchhasingh:~$ ls /etc | grep *.conf
+akanchha-singh@TTNPL-akanchhasingh:~$ ls /etc | grep "*.conf"
+none of above showed result because when run ls /etc on modern Ubuntu systems, ls adds color codes and formatting (for readability).
+These colors are actually non-printable escape sequences, which means the text that grep receives is not plain text, but includes invisible color characters. and it shows like this <color-code>bash.conf<color-reset> not just bash.conf.
+Hence, no match is found.
+akanchha-singh@TTNPL-akanchhasingh:~$ ls --color=never /etc | grep ".conf"
+adduser.conf
+apg.conf
+brltty.conf
+ca-certificates.conf
+cma.conf
+dconf
+debconf.conf
+deluser.conf
+dhcpcd.conf
+e2scrub.conf
+fprintd.conf
+fuse.conf
+gai.conf
+hdparm.conf
+
+This is also working:
+akanchha-singh@TTNPL-akanchhasingh:~$ ls /etc  | grep "\.conf"
+adduser.conf
+apg.conf
+brltty.conf
+ca-certificates.conf
+cma.conf
+debconf.conf
+deluser.conf
+dhcpcd.conf
+e2scrub.conf
+fprintd.conf
+fuse.conf
+gai.conf
+hdparm.conf
+
+
+
+
+Q8. Display the total number of unique shell types listed in /etc/passwd and save to shell_count.txt
+akanchha-singh@TTNPL-akanchhasingh:~$ cat /etc/passwd | cut -d: -f7 | sort | uniq | wc -l > shell_count.txt
+akanchha-singh@TTNPL-akanchhasingh:~$ cat shell_count.txt
+5
+
+
+Q9. Explore vi/vim for  Creating a text file. Understand cursor movement, switching input mode (append, insert etc), deleting command, pasting content, undo , redo ,search , save and quit operations in vim.
+
+
+Q10. Reset the current user password and reboot the system form shell.
+
+Q11. Zip the content of your home directory via tar and send it via scp to other person laptop. Unzip the content on other person laptop via tar.
+
+Q12. Install and setup application via apt - mysql, postman, docker, dbeaver
+
+
+afj!$&147
+
+what is difference in command mode and normal mode

@@ -101,7 +101,7 @@
         function addNumber(){
             const number= parseInt(document.getElementById('number').value);
             if(!isNaN(number)){
-                arr.push(number);
+                arr.unshift(number);
                 document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
             }
         }
@@ -119,7 +119,7 @@
             const number= parseInt(document.getElementById('number1').value);
             const index= parseInt(document.getElementById('index').value);
             if(!isNaN(index) && !isNaN(number) && index>=0 && index<=arr.length){
-                arr.splice(index, 0, number);
+                arr.splice(index, 2, number);
                 document.getElementById('arrayDisplay').innerText = JSON.stringify(arr);
             }
         }

@@ -1,3 +1,5 @@
+package SmallAssign;
+
 public class Calculator {
     int first;
     int second;
