@@ -129,7 +129,13 @@ git pull origin main
 
 ![git fetch](git_fetch.png)
 
+## Q12. Show the difference between git reset and git revert.
 
+## Q13. Delete branch from local and remote.
+go to anyother branch
+git branch -d f2
+git push origin --delete f2
+![alt text](image-2.png)
 
 
 

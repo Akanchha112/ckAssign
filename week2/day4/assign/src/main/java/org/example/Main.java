@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 //        Q1. What is the Java Collections Framework? Explain its advantages.
 //        A ready made set of data structures(like dynamic arrays, linked lists, hash tables, sets and maps) that help programmers store, search, and organize data easily.
-//        In other words it is a set of classes and intergace that are designed to store and manage data efficiently in different ways like list, set map, Arraylist.
+//        In other words it is a set of classes and interfaces that are designed to store and manage data efficiently in different ways like set, map, Arraylist.
 
 
 //        Q2. List the differences between Vector, ArrayList, LinkedList, and HashSet.
